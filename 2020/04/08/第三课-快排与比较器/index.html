@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Hexo</title>
+  <title>第三课-快排与比较器 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="在快速排序之前，先引进荷兰GQ问题：也就是给定一个参照数，比它小的在左边，等于的在中间，比它大的在右边。怎么解决这个问题呢？我们假定一个数组  arr&#x3D;{ 2 4 4 6 8 4 9 } Index   0 1 2 3 4 5 6       我们指定这个参照数为4；首先确定他的最小区和最大区，这数组的范围是从L到R的本题中是0 到 6 最小区less&#x3D;L-1  最大区more&#x3D;R+1，L指向遍历">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第三课-快排与比较器">
+<meta property="og:url" content="http://yoursite.com/2020/04/08/%E7%AC%AC%E4%B8%89%E8%AF%BE-%E5%BF%AB%E6%8E%92%E4%B8%8E%E6%AF%94%E8%BE%83%E5%99%A8/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在快速排序之前，先引进荷兰GQ问题：也就是给定一个参照数，比它小的在左边，等于的在中间，比它大的在右边。怎么解决这个问题呢？我们假定一个数组  arr&#x3D;{ 2 4 4 6 8 4 9 } Index   0 1 2 3 4 5 6       我们指定这个参照数为4；首先确定他的最小区和最大区，这数组的范围是从L到R的本题中是0 到 6 最小区less&#x3D;L-1  最大区more&#x3D;R+1，L指向遍历">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-08T06:09:07.000Z">
+<meta property="article:modified_time" content="2020-04-08T06:23:28.662Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -150,157 +154,197 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-第三课-快排与比较器" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/08/%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%AF%BE-%E6%A1%B6%E6%8E%92%E5%BA%8F%EF%BC%88%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F%E5%92%8C%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-04-08T06:09:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/08/%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%AF%BE-%E6%A1%B6%E6%8E%92%E5%BA%8F%EF%BC%88%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F%E5%92%8C%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F%EF%BC%89/">第四次课-桶排序（计数排序和基数排序）</a>
+    <h1 class="article-title" itemprop="name">
+      第三课-快排与比较器
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/08/%E7%AC%AC%E4%B8%89%E8%AF%BE-%E5%BF%AB%E6%8E%92%E4%B8%8E%E6%AF%94%E8%BE%83%E5%99%A8/" class="archive-article-date">
+        
+        <a href="/2020/04/08/%E7%AC%AC%E4%B8%89%E8%AF%BE-%E5%BF%AB%E6%8E%92%E4%B8%8E%E6%AF%94%E8%BE%83%E5%99%A8/" class="archive-article-date">
   	<time datetime="2020-04-08T06:09:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-08</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/08/%E7%AC%AC%E4%B8%89%E8%AF%BE-%E5%BF%AB%E6%8E%92%E4%B8%8E%E6%AF%94%E8%BE%83%E5%99%A8/">第三课-快排与比较器</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>在快速排序之前，先引进荷兰GQ问题</strong>：也就是给定一个参照数，比它小的在左边，等于的在中间，比它大的在右边。怎么解决这个问题呢？<br>我们假定一个数组  arr={ 2 4 4 6 8 4 9 }</p>
+<pre><code>Index   0 1 2 3 4 5 6       我们指定这个参照数为4；</code></pre><p>首先确定他的最小区和最大区，这数组的范围是从L到R的本题中是0 到 6</p>
+<p>最小区less=L-1  最大区more=R+1，L指向遍历的第一个数，R最后一个。</p>
+<p>L所指的就是当前位置数，若当前位子数比4小，则与最小区外的第一个数交换位子，题中2与2重位，不变，然后Less+1，L++；</p>
+<p> 若是当前位子数与参照数相等，则只是L++; 若当前位子数大于参照数，则 L 与–more,交换位子,L不变。一直到L&gt;=more 停止（L&lt;more时执行）。<br>代码实现：<br>public static void process(int[] arr ,int L，int R)</p>
+<p>int Less=L-1;</p>
+<p>int more=R+1;</p>
+<p>while(L&lt;more)</p>
+<p>{</p>
+<p>if(L&lt;num)</p>
+<p>{</p>
+<p>swap(arr,++Less,L++)</p>
+<p>}</p>
+<p>if(L=num)</p>
+<p>{</p>
+<p>L++;</p>
+<p>}</p>
+<p>if(L&gt;num)</p>
+<p>{</p>
+<p>swap(arr,–more,L)</p>
+<p>}</p>
+<p>}</p>
+<p>快速排序<br> 快速排序就是基于荷兰GQ问题的，只是将指定的参照数改为了，在数组已有元素中，随机选取一个做参照，进行荷兰GQ问题的排序<br>时间复杂度O(N*logn)<br>采用递归 process(arr, l, less)</p>
+<pre><code>process(arr, more, R)</code></pre><p>比较器<br>JAVA中自带的可调用的比较对象<br>例如，这就是一个我们对比较器的重新定义</p>
+<p>public static class IdAscendingComparator implements Comparator<Student> {</p>
+<p>   @Override  //重载（重新定义）</p>
+<p>public int compare(Student o1, Student o2) {</p>
+<p>return o1.id - o2.id;   //小在前面（从小到大排）  若改为o2.id-01.id；就<br>                                       是从打到小的排。<br>}</p>
+<p>}</p>
+<p>调用重载后的比较器</p>
+<p>Student[] students = new Student[] { student1, student2, student3 };</p>
+<p>Arrays.sort(students, new IdAscendingComparator());   //原本的调用<br>                                           加上我们自己的定义规则<br>printStudents(students);</p>
+<p>System.out.println(“===========================”);</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/08/%E7%AC%AC%E4%B8%89%E8%AF%BE-%E5%BF%AB%E6%8E%92%E4%B8%8E%E6%AF%94%E8%BE%83%E5%99%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/08/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E5%85%A5%E5%AD%A6%E7%AC%AC%E4%BA%8C%E8%AF%BE-%E5%A4%8D%E6%9D%82%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-04-08T06:08:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-08</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/04/08/%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%AF%BE-%E6%A1%B6%E6%8E%92%E5%BA%8F%EF%BC%88%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F%E5%92%8C%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          第四次课-桶排序（计数排序和基数排序）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/08/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E5%85%A5%E5%AD%A6%E7%AC%AC%E4%BA%8C%E8%AF%BE-%E5%A4%8D%E6%9D%82%E6%8E%92%E5%BA%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法基础入学第二课-复杂排序</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/08/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E5%85%A5%E5%AD%A6%E7%AC%AC%E4%BA%8C%E8%AF%BE-%E5%A4%8D%E6%9D%82%E6%8E%92%E5%BA%8F/">算法基础入学第二课-复杂排序</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/08/%E5%9F%BA%E7%A1%80%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-04-08T06:02:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/08/%E5%9F%BA%E7%A1%80%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E7%AE%97%E6%B3%95/">算法入门第一节课—时间复杂度和基本排序算法</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/08/hello-world/" class="archive-article-date">
-  	<time datetime="2020-04-08T01:12:23.882Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/08/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -323,8 +367,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

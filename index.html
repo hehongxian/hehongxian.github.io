@@ -152,6 +152,927 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-day3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/10/day3/">day3</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/10/day3/" class="archive-article-date">
+  	<time datetime="2020-04-10T12:14:46.071Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="今日内容："><a href="#今日内容：" class="headerlink" title="今日内容："></a>今日内容：</h1><pre><code>1. HTML标签：表单标签
+
+2. CSS：</code></pre><h2 id="HTML标签：表单标签"><a href="#HTML标签：表单标签" class="headerlink" title="HTML标签：表单标签"></a>HTML标签：表单标签</h2><pre><code>* 表单：
+    * 概念：用于采集用户输入的数据的。用于和服务器进行交互。
+    * form：用于定义表单的。可以定义一个范围，范围代表采集用户数据的范围
+        * 属性：
+            * action：指定提交数据的URL
+            * method:指定提交方式
+                * 分类：一共7种，2种比较常用
+                   * get：
+                        1. 请求参数会在地址栏中显示。会封装到请求行中(HTTP协议后讲解)。
+                        2. 请求参数大小是有限制的。
+                        3. 不太安全。
+                   * post：
+                        2. 请求参数不会再地址栏中显示。会封装在请求体中(HTTP协议后讲解)
+                        2. 请求参数的大小没有限制。
+                        3. 较为安全。
+
+        * 表单项中的数据要想被提交：必须指定其name属性
+
+
+    * 表单项标签：
+        * input：可以通过type属性值，改变元素展示的样式
+            * type属性：
+                * text：文本输入框，默认值
+                    * placeholder：指定输入框的提示信息，当输入框的内容发生变化，会自动清空提示信息    
+                * password：密码输入框
+                * radio:单选框
+                    * 注意：
+                        1. 要想让多个单选框实现单选的效果，则多个单选框的name属性值必须一样。
+                        2. 一般会给每一个单选框提供value属性，指定其被选中后提交的值
+                        3. checked属性，可以指定默认值
+                * checkbox：复选框
+                    * 注意：
+                        1. 一般会给每一个单选框提供value属性，指定其被选中后提交的值
+                        2. checked属性，可以指定默认值
+
+                * file：文件选择框
+                * hidden：隐藏域，用于提交一些信息。
+                * 按钮：
+                    * submit：提交按钮。可以提交表单
+                    * button：普通按钮
+                    * image：图片提交按钮
+                        * src属性指定图片的路径    
+
+           * label：指定输入项的文字描述信息
+               * 注意：
+                   * label的for属性一般会和 input 的 id属性值 对应。如果对应了，则点击label区域，会让input输入框获取焦点。
+        * select: 下拉列表
+            * 子元素：option，指定列表项
+
+        * textarea：文本域
+            * cols：指定列数，每一行有多少个字符
+            * rows：默认多少行。</code></pre><h2 id="CSS：页面美化和布局控制"><a href="#CSS：页面美化和布局控制" class="headerlink" title="CSS：页面美化和布局控制"></a>CSS：页面美化和布局控制</h2><pre><code>1. 概念： Cascading Style Sheets 层叠样式表
+    * 层叠：多个样式可以作用在同一个html的元素上，同时生效
+
+2. 好处：
+    1. 功能强大
+    2. 将内容展示和样式控制分离
+        * 降低耦合度。解耦
+        * 让分工协作更容易
+        * 提高开发效率
+
+
+3. CSS的使用：CSS与html结合方式
+    1. 内联样式
+         * 在标签内使用style属性指定css代码
+         * 如：&lt;div style=&quot;color:red;&quot;&gt;hello css&lt;/div&gt;
+    2. 内部样式
+        * 在head标签内，定义style标签，style标签的标签体内容就是css代码
+        * 如：
+            &lt;style&gt;
+                div{
+                    color:blue;
+                }
+
+            &lt;/style&gt;
+            &lt;div&gt;hello css&lt;/div&gt;
+    3. 外部样式
+        1. 定义css资源文件。
+        2. 在head标签内，定义link标签，引入外部的资源文件
+        * 如：
+            * a.css文件：
+                div{
+                    color:green;
+                }
+            &lt;link rel=&quot;stylesheet&quot; href=&quot;css/a.css&quot;&gt;
+            &lt;div&gt;hello css&lt;/div&gt;
+            &lt;div&gt;hello css&lt;/div&gt;
+
+    * 注意：
+        * 1,2,3种方式 css作用范围越来越大
+        * 1方式不常用，后期常用2,3
+        * 3种格式可以写为：
+            &lt;style&gt;
+                @import &quot;css/a.css&quot;;
+            &lt;/style&gt;
+
+4. css语法：
+    * 格式：
+        选择器 {
+            属性名1:属性值1;
+            属性名2:属性值2;
+            ...
+        }
+    * 选择器:筛选具有相似特征的元素
+    * 注意：
+        * 每一对属性需要使用；隔开，最后一对属性可以不加；
+
+
+5. 选择器：筛选具有相似特征的元素
+    * 分类：
+        1. 基础选择器
+            1. id选择器：选择具体的id属性值的元素.建议在一个html页面中id值唯一
+                * 语法：#id属性值{}
+            2. 元素选择器：选择具有相同标签名称的元素
+                * 语法： 标签名称{}
+                * 注意：id选择器优先级高于元素选择器
+            3. 类选择器：选择具有相同的class属性值的元素。
+                * 语法：.class属性值{}
+                * 注意：类选择器选择器优先级高于元素选择器
+        2. 扩展选择器：
+            1. 选择所有元素：
+                * 语法： *{}
+            2. 并集选择器：
+                * 选择器1,选择器2{}
+
+            3. 子选择器：筛选选择器1元素下的选择器2元素
+                * 语法：  选择器1 选择器2{}
+            4. 父选择器：筛选选择器2的父元素选择器1
+                * 语法：  选择器1 &gt; 选择器2{}
+
+            5. 属性选择器：选择元素名称，属性名=属性值的元素
+                * 语法：  元素名称[属性名=&quot;属性值&quot;]{}
+
+            6. 伪类选择器：选择一些元素具有的状态
+                * 语法： 元素:状态{}
+                * 如： &lt;a&gt;
+                    * 状态：
+                        * link：初始化的状态
+                        * visited：被访问过的状态
+                        * active：正在访问状态
+                        * hover：鼠标悬浮状态
+6. 属性
+    1. 字体、文本
+        * font-size：字体大小
+        * color：文本颜色
+        * text-align：对其方式
+        * line-height：行高 
+    2. 背景
+        * background：
+    3. 边框
+        * border：设置边框，符合属性
+    4. 尺寸
+        * width：宽度
+        * height：高度
+    5. 盒子模型：控制布局
+        * margin：外边距
+        * padding：内边距
+            * 默认情况下内边距会影响整个盒子的大小
+            * box-sizing: border-box;  设置盒子的属性，让width和height就是最终盒子的大小
+
+        * float：浮动
+            * left
+            * right</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/10/day3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-day2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/10/day2/">day2</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/10/day2/" class="archive-article-date">
+  	<time datetime="2020-04-10T12:14:46.071Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="今日内容"><a href="#今日内容" class="headerlink" title="今日内容"></a>今日内容</h1><pre><code>1. web概念概述
+2. HTML</code></pre><h2 id="web概念概述"><a href="#web概念概述" class="headerlink" title="web概念概述"></a>web概念概述</h2><pre><code>* JavaWeb：
+    * 使用Java语言开发基于互联网的项目
+
+* 软件架构：
+    1. C/S: Client/Server 客户端/服务器端
+        * 在用户本地有一个客户端程序，在远程有一个服务器端程序
+        * 如：QQ，迅雷...
+        * 优点：
+            1. 用户体验好
+        * 缺点：
+            1. 开发、安装，部署，维护 麻烦
+    2. B/S: Browser/Server 浏览器/服务器端
+        * 只需要一个浏览器，用户通过不同的网址(URL)，客户访问不同的服务器端程序
+        * 优点：
+            1. 开发、安装，部署，维护 简单
+        * 缺点：
+            1. 如果应用过大，用户的体验可能会受到影响
+            2. 对硬件要求过高
+
+* B/S架构详解
+    * 资源分类：
+        1. 静态资源：
+            * 使用静态网页开发技术发布的资源。
+            * 特点：
+                * 所有用户访问，得到的结果是一样的。
+                * 如：文本，图片，音频、视频, HTML,CSS,JavaScript
+                * 如果用户请求的是静态资源，那么服务器会直接将静态资源发送给浏览器。浏览器中内置了静态资源的解析引擎，可以展示静态资源
+        2. 动态资源：
+            * 使用动态网页及时发布的资源。
+            * 特点：
+                * 所有用户访问，得到的结果可能不一样。
+                * 如：jsp/servlet,php,asp...
+                * 如果用户请求的是动态资源，那么服务器会执行动态资源，转换为静态资源，再发送给浏览器
+
+
+    * 我们要学习动态资源，必须先学习静态资源！
+
+    * 静态资源：
+        * HTML：用于搭建基础网页，展示页面的内容
+        * CSS：用于美化页面，布局页面
+        * JavaScript：控制页面的元素，让页面有一些动态的效果</code></pre><h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><pre><code>1. 概念：是最基础的网页开发语言
+    * Hyper Text Markup Language 超文本标记语言
+        * 超文本:
+            * 超文本是用超链接的方法，将各种不同空间的文字信息组织在一起的网状文本.
+        * 标记语言:
+            * 由标签构成的语言。&lt;标签名称&gt; 如 html，xml
+            * 标记语言不是编程语言
+
+2. 快速入门：
+    * 语法：
+        1. html文档后缀名 .html 或者 .htm
+        2. 标签分为
+            1. 围堵标签：有开始标签和结束标签。如 &lt;html&gt; &lt;/html&gt;
+            2. 自闭和标签：开始标签和结束标签在一起。如 &lt;br/&gt;
+
+        3. 标签可以嵌套：
+            需要正确嵌套，不能你中有我，我中有你
+            错误：&lt;a&gt;&lt;b&gt;&lt;/a&gt;&lt;/b&gt;
+            正确：&lt;a&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;
+
+        4. 在开始标签中可以定义属性。属性是由键值对构成，值需要用引号(单双都可)引起来
+        5. html的标签不区分大小写，但是建议使用小写。
+
+    * 代码：
+        &lt;html&gt;
+
+            &lt;head&gt;
+                &lt;title&gt;title&lt;/title&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;FONT color=&apos;red&apos;&gt;Hello World&lt;/font&gt;&lt;br/&gt;
+
+                &lt;font color=&apos;green&apos;&gt;Hello World&lt;/font&gt;
+
+            &lt;/body&gt;
+
+        &lt;/html&gt;
+
+3. 标签学习：
+    1. 文件标签：构成html最基本的标签
+        * html:html文档的根标签
+        * head：头标签。用于指定html文档的一些属性。引入外部的资源
+        * title：标题标签。
+        * body：体标签
+        * &lt;!DOCTYPE html&gt;：html5中定义该文档是html文档
+    2. 文本标签：和文本有关的标签
+        * 注释：&lt;!-- 注释内容 --&gt;
+        * &lt;h1&gt; to &lt;h6&gt;：标题标签
+            * h1~h6:字体大小逐渐递减
+        * &lt;p&gt;：段落标签
+        * &lt;br&gt;：换行标签
+        * &lt;hr&gt;：展示一条水平线
+            * 属性：
+                * color：颜色
+                * width：宽度
+                * size：高度
+                * align：对其方式
+                    * center：居中
+                    * left：左对齐
+                    * right：右对齐
+        * &lt;b&gt;：字体加粗
+        * &lt;i&gt;：字体斜体
+        * &lt;font&gt;:字体标签
+        * &lt;center&gt;:文本居中
+            * 属性：
+                * color：颜色
+                * size：大小
+                * face：字体
+
+        * 属性定义：
+            * color：
+                1. 英文单词：red,green,blue
+                2. rgb(值1，值2，值3)：值的范围：0~255  如  rgb(0,0,255)
+                3. #值1值2值3：值的范围：00~FF之间。如： #FF00FF
+            * width：
+                1. 数值：width=&apos;20&apos; ,数值的单位，默认是 px(像素)
+                2. 数值%：占比相对于父元素的比例
+
+        * 案例：公司简介
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang=&quot;ch&quot;&gt;
+            &lt;head&gt;
+                &lt;meta charset=&quot;UTF-8&quot;&gt;
+                &lt;title&gt;黑马程序员简介&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+
+            &lt;h1&gt;
+                公司简介
+            &lt;/h1&gt;
+            &lt;hr color=&quot;#ffd700&quot;&gt;
+
+            &lt;p&gt;
+            &lt;font color=&quot;#FF0000&quot;&gt;&quot;中关村黑马程序员训练营&quot;&lt;/font&gt;是由&lt;b&gt;&lt;i&gt;传智播客&lt;/i&gt;&lt;/b&gt;联合中关村软件园、CSDN， 并委托传智播客进行教学实施的软件开发高端培训机构，致力于服务各大软件企业，解决当前软件开发技术飞速发展， 而企业招不到优秀人才的困扰。
+            &lt;/p&gt;
+
+            &lt;p&gt;
+            目前，“中关村黑马程序员训练营”已成长为行业“学员质量好、课程内容深、企业满意”的移动开发高端训练基地， 并被评为中关村软件园重点扶持人才企业。
+            &lt;/p&gt;
+
+            &lt;p&gt;
+
+            黑马程序员的学员多为大学毕业后，有理想、有梦想，想从事IT行业，而没有环境和机遇改变自己命运的年轻人。 黑马程序员的学员筛选制度，远比现在90%以上的企业招聘流程更为严格。任何一名学员想成功入学“黑马程序员”， 必须经历长达2个月的面试流程，这些流程中不仅包括严格的技术测试、自学能力测试，还包括性格测试、压力测试、 品德测试等等测试。毫不夸张地说，黑马程序员训练营所有学员都是精挑细选出来的。百里挑一的残酷筛选制度确 保学员质量，并降低企业的用人风险。
+            中关村黑马程序员训练营不仅着重培养学员的基础理论知识，更注重培养项目实施管理能力，并密切关注技术革新， 不断引入先进的技术，研发更新技术课程，确保学员进入企业后不仅能独立从事开发工作，更能给企业带来新的技术体系和理念。
+            &lt;/p&gt;
+
+            &lt;p&gt;
+
+            一直以来，黑马程序员以技术视角关注IT产业发展，以深度分享推进产业技术成长，致力于弘扬技术创新，倡导分享、 开放和协作，努力打造高质量的IT人才服务平台。
+            &lt;/p&gt;
+
+            &lt;hr color=&quot;#ffd700&quot;&gt;
+
+            &lt;font color=&quot;gray&quot; size=&quot;2&quot;&gt;
+                &lt;center&gt;
+                    江苏传智播客教育科技股份有限公司&lt;br&gt;
+                    版权所有Copyright 2006-2018&amp;copy;, All Rights Reserved 苏ICP备16007882
+                &lt;/center&gt;
+            &lt;/font&gt;
+
+
+
+            &lt;/body&gt;
+            &lt;/html&gt;
+
+    3. 图片标签：
+        * img：展示图片
+            * 属性：
+                * src：指定图片的位置
+
+        * 代码：
+             &lt;!--展示一张图片 img--&gt;
+
+            &lt;img src=&quot;image/jingxuan_2.jpg&quot; align=&quot;right&quot; alt=&quot;古镇&quot; width=&quot;500&quot; height=&quot;500&quot;/&gt;
+
+            &lt;!--
+                相对路径
+                    * 以.开头的路径
+                        * ./：代表当前目录  ./image/1.jpg
+                        * ../:代表上一级目录
+             --&gt;
+
+            &lt;img src=&quot;./image/jiangwai_1.jpg&quot;&gt;
+
+            &lt;img src=&quot;../image/jiangwai_1.jpg&quot;&gt;
+    4. 列表标签：
+        * 有序列表：
+            * ol:
+            * li:
+        * 无序列表：
+            * ul:
+            * li:
+    5. 链接标签：
+        * a:定义一个超链接
+            * 属性：
+                * href：指定访问资源的URL(统一资源定位符)
+                * target：指定打开资源的方式
+                    * _self:默认值，在当前页面打开
+                    * _blank：在空白页面打开
+
+        * 代码：
+             &lt;!--超链接  a--&gt;
+
+            &lt;a href=&quot;http://www.itcast.cn&quot;&gt;点我&lt;/a&gt;
+            &lt;br&gt;
+
+            &lt;a href=&quot;http://www.itcast.cn&quot; target=&quot;_self&quot;&gt;点我&lt;/a&gt;
+            &lt;br&gt;
+            &lt;a href=&quot;http://www.itcast.cn&quot; target=&quot;_blank&quot;&gt;点我&lt;/a&gt;
+
+            &lt;br&gt;
+
+            &lt;a href=&quot;./5_列表标签.html&quot;&gt;列表标签&lt;/a&gt;&lt;br&gt;
+            &lt;a href=&quot;mailto:itcast@itcast.cn&quot;&gt;联系我们&lt;/a&gt;
+
+            &lt;br&gt;
+            &lt;a href=&quot;http://www.itcast.cn&quot;&gt;&lt;img src=&quot;image/jiangwai_1.jpg&quot;&gt;&lt;/a&gt;
+    6. div和span：
+        * div:每一个div占满一整行。块级标签
+        * span：文本信息在一行展示，行内标签 内联标签
+
+    7. 语义化标签：html5中为了提高程序的可读性，提供了一些标签。
+        1. &lt;header&gt;：页眉
+        2. &lt;footer&gt;：页脚
+
+
+    8. 表格标签：
+        * table：定义表格
+            * width：宽度
+            * border：边框
+            * cellpadding：定义内容和单元格的距离
+            * cellspacing：定义单元格之间的距离。如果指定为0，则单元格的线会合为一条、
+            * bgcolor：背景色
+            * align：对齐方式
+        * tr：定义行
+            * bgcolor：背景色
+            * align：对齐方式
+        * td：定义单元格
+            * colspan：合并列
+            * rowspan：合并行
+        * th：定义表头单元格
+        * &lt;caption&gt;：表格标题
+        * &lt;thead&gt;：表示表格的头部分
+        * &lt;tbody&gt;：表示表格的体部分
+        * &lt;tfoot&gt;：表示表格的脚部分</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/10/day2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-day1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/09/day1/">数据库连接池 &amp; Jdbc Spring</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/09/day1/" class="archive-article-date">
+  	<time datetime="2020-04-09T01:32:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="今日内容"><a href="#今日内容" class="headerlink" title="今日内容"></a>今日内容</h1><pre><code>1. 数据库连接池
+
+2. Spring JDBC : JDBC Template</code></pre><h2 id="数据库连接池"><a href="#数据库连接池" class="headerlink" title="数据库连接池"></a>数据库连接池</h2><pre><code>1. 概念：其实就是一个容器(集合)，存放数据库连接的容器。
+        当系统初始化好后，容器被创建，容器中会申请一些连接对象，当用户来访问数据库时，从容器中获取连接对象，用户访问完之后，会将连接对象归还给容器。
+
+2. 好处：
+    1. 节约资源
+    2. 用户访问高效
+
+3. 实现：
+    1. 标准接口：DataSource   javax.sql包下的
+        1. 方法：
+            * 获取连接：getConnection()
+            * 归还连接：Connection.close()。如果连接对象Connection是从连接池中获取的，那么调用Connection.close()方法，则不会再关闭连接了。而是归还连接
+
+    2. 一般我们不去实现它，有数据库厂商来实现
+        1. C3P0：数据库连接池技术
+        2. Druid：数据库连接池实现技术，由阿里巴巴提供的
+
+
+4. C3P0：数据库连接池技术
+    * 步骤：
+        1. 导入jar包 (两个) c3p0-0.9.5.2.jar mchange-commons-java-0.2.12.jar ，
+            * 不要忘记导入数据库驱动jar包
+        2. 定义配置文件：
+            * 名称： c3p0.properties 或者 c3p0-config.xml
+            * 路径：直接将文件放在src目录下即可。
+
+        3. 创建核心对象 数据库连接池对象 ComboPooledDataSource
+        4. 获取连接： getConnection
+    * 代码：
+         //1.创建数据库连接池对象
+        DataSource ds  = new ComboPooledDataSource();
+        //2. 获取连接对象
+        Connection conn = ds.getConnection();
+5. Druid：数据库连接池实现技术，由阿里巴巴提供的
+    1. 步骤：
+        1. 导入jar包 druid-1.0.9.jar
+        2. 定义配置文件：
+            * 是properties形式的
+            * 可以叫任意名称，可以放在任意目录下
+        3. 加载配置文件。Properties
+        4. 获取数据库连接池对象：通过工厂来来获取  DruidDataSourceFactory
+        5. 获取连接：getConnection
+    * 代码：
+         //3.加载配置文件
+        Properties pro = new Properties();
+        InputStream is = DruidDemo.class.getClassLoader().getResourceAsStream(&quot;druid.properties&quot;);
+        pro.load(is);
+        //4.获取连接池对象
+        DataSource ds = DruidDataSourceFactory.createDataSource(pro);
+        //5.获取连接
+        Connection conn = ds.getConnection();
+    2. 定义工具类
+        1. 定义一个类 JDBCUtils
+        2. 提供静态代码块加载配置文件，初始化连接池对象
+        3. 提供方法
+            1. 获取连接方法：通过数据库连接池获取连接
+            2. 释放资源
+            3. 获取连接池的方法
+
+
+    * 代码：
+        public class JDBCUtils {
+
+            //1.定义成员变量 DataSource
+            private static DataSource ds ;
+
+            static{
+                try {
+                    //1.加载配置文件
+                    Properties pro = new Properties();
+                    pro.load(JDBCUtils.class.getClassLoader().getResourceAsStream(&quot;druid.properties&quot;));
+                    //2.获取DataSource
+                    ds = DruidDataSourceFactory.createDataSource(pro);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            /**
+             * 获取连接
+             */
+            public static Connection getConnection() throws SQLException {
+                return ds.getConnection();
+            }
+
+            /**
+             * 释放资源
+             */
+            public static void close(Statement stmt,Connection conn){
+               /* if(stmt != null){
+                    try {
+                        stmt.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                if(conn != null){
+                    try {
+                        conn.close();//归还连接
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }*/
+
+               close(null,stmt,conn);
+            }
+
+
+            public static void close(ResultSet rs , Statement stmt, Connection conn){
+
+
+                if(rs != null){
+                    try {
+                        rs.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+
+                if(stmt != null){
+                    try {
+                        stmt.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                if(conn != null){
+                    try {
+                        conn.close();//归还连接
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            /**
+             * 获取连接池方法
+             */
+
+            public static DataSource getDataSource(){
+                return  ds;
+            }
+
+        }</code></pre><h2 id="Spring-JDBC"><a href="#Spring-JDBC" class="headerlink" title="Spring JDBC"></a>Spring JDBC</h2><pre><code>* Spring框架对JDBC的简单封装。提供了一个JDBCTemplate对象简化JDBC的开发
+* 步骤：
+    1. 导入jar包
+    2. 创建JdbcTemplate对象。依赖于数据源DataSource
+        * JdbcTemplate template = new JdbcTemplate(ds);
+
+    3. 调用JdbcTemplate的方法来完成CRUD的操作
+        * update():执行DML语句。增、删、改语句
+        * queryForMap():查询结果将结果集封装为map集合，将列名作为key，将值作为value 将这条记录封装为一个map集合
+            * 注意：这个方法查询的结果集长度只能是1
+        * queryForList():查询结果将结果集封装为list集合
+            * 注意：将每一条记录封装为一个Map集合，再将Map集合装载到List集合中
+        * query():查询结果，将结果封装为JavaBean对象
+            * query的参数：RowMapper
+                * 一般我们使用BeanPropertyRowMapper实现类。可以完成数据到JavaBean的自动封装
+                * new BeanPropertyRowMapper&lt;类型&gt;(类型.class)
+        * queryForObject：查询结果，将结果封装为对象
+            * 一般用于聚合函数的查询
+
+    4. 练习：
+        * 需求：
+            1. 修改1号数据的 salary 为 10000
+            2. 添加一条记录
+            3. 删除刚才添加的记录
+            4. 查询id为1的记录，将其封装为Map集合
+            5. 查询所有记录，将其封装为List
+            6. 查询所有记录，将其封装为Emp对象的List集合
+            7. 查询总记录数
+
+        * 代码：
+
+            import cn.itcast.domain.Emp;
+            import cn.itcast.utils.JDBCUtils;
+            import org.junit.Test;
+            import org.springframework.jdbc.core.BeanPropertyRowMapper;
+            import org.springframework.jdbc.core.JdbcTemplate;
+            import org.springframework.jdbc.core.RowMapper;
+
+            import java.sql.Date;
+            import java.sql.ResultSet;
+            import java.sql.SQLException;
+            import java.util.List;
+            import java.util.Map;
+
+            public class JdbcTemplateDemo2 {
+
+                //Junit单元测试，可以让方法独立执行
+
+
+                //1. 获取JDBCTemplate对象
+                private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
+                /**
+                 * 1. 修改1号数据的 salary 为 10000
+                 */
+                @Test
+                public void test1(){
+
+                    //2. 定义sql
+                    String sql = &quot;update emp set salary = 10000 where id = 1001&quot;;
+                    //3. 执行sql
+                    int count = template.update(sql);
+                    System.out.println(count);
+                }
+
+                /**
+                 * 2. 添加一条记录
+                 */
+                @Test
+                public void test2(){
+                    String sql = &quot;insert into emp(id,ename,dept_id) values(?,?,?)&quot;;
+                    int count = template.update(sql, 1015, &quot;郭靖&quot;, 10);
+                    System.out.println(count);
+
+                }
+
+                /**
+                 * 3.删除刚才添加的记录
+                 */
+                @Test
+                public void test3(){
+                    String sql = &quot;delete from emp where id = ?&quot;;
+                    int count = template.update(sql, 1015);
+                    System.out.println(count);
+                }
+
+                /**
+                 * 4.查询id为1001的记录，将其封装为Map集合
+                 * 注意：这个方法查询的结果集长度只能是1
+                 */
+                @Test
+                public void test4(){
+                    String sql = &quot;select * from emp where id = ? or id = ?&quot;;
+                    Map&lt;String, Object&gt; map = template.queryForMap(sql, 1001,1002);
+                    System.out.println(map);
+                    //{id=1001, ename=孙悟空, job_id=4, mgr=1004, joindate=2000-12-17, salary=10000.00, bonus=null, dept_id=20}
+
+                }
+
+                /**
+                 * 5. 查询所有记录，将其封装为List
+                 */
+                @Test
+                public void test5(){
+                    String sql = &quot;select * from emp&quot;;
+                    List&lt;Map&lt;String, Object&gt;&gt; list = template.queryForList(sql);
+
+                    for (Map&lt;String, Object&gt; stringObjectMap : list) {
+                        System.out.println(stringObjectMap);
+                    }
+                }
+
+                /**
+                 * 6. 查询所有记录，将其封装为Emp对象的List集合
+                 */
+
+                @Test
+                public void test6(){
+                    String sql = &quot;select * from emp&quot;;
+                    List&lt;Emp&gt; list = template.query(sql, new RowMapper&lt;Emp&gt;() {
+
+                        @Override
+                        public Emp mapRow(ResultSet rs, int i) throws SQLException {
+                            Emp emp = new Emp();
+                            int id = rs.getInt(&quot;id&quot;);
+                            String ename = rs.getString(&quot;ename&quot;);
+                            int job_id = rs.getInt(&quot;job_id&quot;);
+                            int mgr = rs.getInt(&quot;mgr&quot;);
+                            Date joindate = rs.getDate(&quot;joindate&quot;);
+                            double salary = rs.getDouble(&quot;salary&quot;);
+                            double bonus = rs.getDouble(&quot;bonus&quot;);
+                            int dept_id = rs.getInt(&quot;dept_id&quot;);
+
+                            emp.setId(id);
+                            emp.setEname(ename);
+                            emp.setJob_id(job_id);
+                            emp.setMgr(mgr);
+                            emp.setJoindate(joindate);
+                            emp.setSalary(salary);
+                            emp.setBonus(bonus);
+                            emp.setDept_id(dept_id);
+
+                            return emp;
+                        }
+                    });
+
+
+                    for (Emp emp : list) {
+                        System.out.println(emp);
+                    }
+                }
+
+                /**
+                 * 6. 查询所有记录，将其封装为Emp对象的List集合
+                 */
+
+                @Test
+                public void test6_2(){
+                    String sql = &quot;select * from emp&quot;;
+                    List&lt;Emp&gt; list = template.query(sql, new BeanPropertyRowMapper&lt;Emp&gt;(Emp.class));
+                    for (Emp emp : list) {
+                        System.out.println(emp);
+                    }
+                }
+
+                /**
+                 * 7. 查询总记录数
+                 */
+
+                @Test
+                public void test7(){
+                    String sql = &quot;select count(id) from emp&quot;;
+                    Long total = template.queryForObject(sql, Long.class);
+                    System.out.println(total);
+                }
+
+            }</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/09/day1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-第四次课-桶排序（计数排序和基数排序）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

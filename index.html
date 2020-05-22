@@ -152,6 +152,98 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ajax数据获取" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/22/ajax%E6%95%B0%E6%8D%AE%E8%8E%B7%E5%8F%96/">ajax数据获取</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/22/ajax%E6%95%B0%E6%8D%AE%E8%8E%B7%E5%8F%96/" class="archive-article-date">
+  	<time datetime="2020-05-22T14:18:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##如何在vue中通过AJAX获取后端数据</p>
+<p>使用vue推荐的axios</p>
+<p>使用npm 全局部署axios  npm install axios –save</p>
+<p>在组件中引入axios  import axios from ‘axios’</p>
+<p> methods: {</p>
+<pre><code>getClassInfo () {
+  axios.get(&apos;/api/static/classNames&apos;).then(this.getClassInfosucc) //获取数据
+  axios.get(&apos;/api/static/areaNames&apos;).then(this.getClassInfosucc)
+},
+getClassInfosucc (res) {
+  console.log(res)  
+  res = res.data
+  if (res.data) {
+    this.ClassifyList = res.data.classNames  //数据关联赋值
+    this.areaNames = res.data.areaNames
+  }
+}</code></pre><p>  },</p>
+<p> mounted () {</p>
+<pre><code>this.getClassInfo()</code></pre><p>  } </p>
+<p>父子组件再通过 组件间传值来获取数据   props：{……..}</p>
+<p>##如何设置/api 的跳转位置（后端接口）</p>
+<p>在config下的index.js中：</p>
+<p> proxyTable: {</p>
+<pre><code>  &apos;/api&apos;:{
+    target: &quot;http://120.xxxxxxx&quot;,//端口IP地址
+    changeOrigin:true,
+    pathRewrite: {
+      &apos;^/api&apos;:&apos;&apos;
+    }
+  }
+},</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/22/ajax%E6%95%B0%E6%8D%AE%E8%8E%B7%E5%8F%96/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-在vue中如何动态引入图片" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
